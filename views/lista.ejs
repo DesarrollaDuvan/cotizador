@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acemar</title>
+    <script src="javascript/jquery-3.6.1.min.js"></script>
+    <script src="/javascript/ElimCarrito.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert2"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/estilos.css" />
+    <link rel="stylesheet" href="style/guardados.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="encs">
+        <img src="/images/redes/acemarUS.png" width="auto" height="50" />
+        <img
+          src="/images/perfil/<%= perf %>"
+          class="mt-3 mb-4 ms-3"
+          width="50"
+          height="auto"
+        />
+        <label class="ms-5"><%= user%></label>
+      </div>
+      <h3>PRE-ORDER</h3>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="index">Doors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="pisos">Floorings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary bg-light" href="lista">Quoter</a>
+        </li>
+        <li class="nav-item">
+          <a href="/"
+            ><i
+              class="fa-solid fa-arrow-right-from-bracket mt-3 ms-3 text-secondary fs-5"
+            ></i
+          ></a>
+        </li>
+      </ul>
+      <div class="mt-2 linea"></div>
+    </nav>
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+      <div class="toast-container position-absolute top-0 end-0 p-3">
+        <div
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          data-bs-delay="10000"
+        >
+          <div class="toast-header">
+            <img
+              src="/images/redes/Favicon-Acemar.png"
+              class="rounded me-2"
+              width="25"
+              height="auto"
+            />
+            <strong class="me-auto">Acemar</strong>
+            <small class="text-muted">just now</small>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">
+            an email has just been sent to <%= co%> with the pre-order
+          </div>
+        </div>
+      </div>
+    </div>
+    <%if (datosPisos.length > 0) {%>
+    <table id="tabla" name="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>SKU</th>
+          <th>Image</th>
+          <th>Top Layer</th>
+          <th>Pallets</th>
+          <th>SQF per Pallet</th>
+          <th>Boxes per pallet</th>
+          <th>SQL per Box</th>
+          <th>Unit Price SQF</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% datosPisos.forEach(function (datosPisos) {%>
+        <input
+          type="hidden"
+          value="<%= datosPisos.id%>"
+          id="codigo"
+          class="col-12 val id"
+        />
+
+        <input
+          type="hidden"
+          name="id_cliente"
+          value="<%= datosPisos.id_cliente%>"
+          class="col-12 val id_cliente"
+        />
+        <input
+          type="hidden"
+          value="<%= datosPisos.pisos%>"
+          class="col-12 val idpiso"
+          id="idpiso"
+          name="idpiso"
+        />
+        <input
+          type="hidden"
+          value="<%= datosPisos.pallets%>"
+          class="col-12 val cant"
+        />
+        <input
+          type="hidden"
+          value="<%= datosPisos.precio%>"
+          class="col-12 val precio"
+          name="precio"
+        />
+        <input
+          type="hidden"
+          value="<%= datosPisos.top_layer%>"
+          class="col-12 val layer"
+          name="layer"
+        />
+        <tr>
+          <td></td>
+          <td><%= datosPisos.producto%></td>
+          <td><%= datosPisos.sku%>-W-UT-RT10</td>
+          <td>
+            <img
+              src="images/flooring/<%=datosPisos.image%>"
+              class="puer"
+              alt=""
+            />
+          </td>
+          <td><%= datosPisos.top_layer%>mm</td>
+          <td><%= datosPisos.pallets%></td>
+          <td><%= datosPisos.sqf_per_pallet%></td>
+          <td><%= datosPisos.boxes_per_pallet%></td>
+          <td>29.38</td>
+          <td>
+            <%= datosPisos.unit_price.toLocaleString('en', { style: 'currency',
+            currency: 'USD' });%>
+          </td>
+          <td>
+            <%= datosPisos.total.toLocaleString('en', { style: 'currency',
+            currency: 'USD' });%>
+          </td>
+          <td>
+            <input
+              type="submit"
+              class="elim btn btn-warning"
+              value="Remove"
+              name="elim"
+            />
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <%}%> <%if (datosPuertas.length > 0) {%>
+    <table id="tablaPuertas">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Image</th>
+          <th>Height</th>
+          <th>Width</th>
+          <th>Finish</th>
+          <th>Color</th>
+          <th>Opening</th>
+          <th>Core</th>
+          <th>Thickness</th>
+          <th>Quantity</th>
+          <th>Unit Price SQF</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% datosPuertas.forEach(function (datosPuertas) {%>
+        <input type="hidden" class="idpro" value="<%= datosPuertas.idpro%>" />
+        <tr>
+          <td></td>
+          <td><%= datosPuertas.producto%></td>
+          <td>
+            <img
+              src="images/doors/<%= datosPuertas.image%>"
+              class="puer"
+              alt=""
+            />
+          </td>
+          <td><%= datosPuertas.height%>"</td>
+          <td><%= datosPuertas.width%>"</td>
+          <td>
+            <%= datosPuertas.finish === "false" ? "" : datosPuertas.finish%>
+          </td>
+          <td>
+            <%= datosPuertas.color === "false" ? "" : datosPuertas.color%>
+          </td>
+          <td><%= datosPuertas.opening%></td>
+          <td><%= datosPuertas.core%></td>
+          <td><%= datosPuertas.thickness%></td>
+          <td><%= datosPuertas.quantity%></td>
+          <td>
+            <%= datosPuertas.unit_price.toLocaleString('en', { style:
+            'currency', currency: 'USD' });%>
+          </td>
+          <td>
+            <%= datosPuertas.total.toLocaleString('en', { style: 'currency',
+            currency: 'USD' });%>
+          </td>
+          <td>
+            <input
+              type="submit"
+              class="elimpuerta btn btn-warning"
+              value="Remove"
+              name="elim"
+            />
+          </td>
+        </tr>
+        <% })%>
+      </tbody>
+    </table>
+    <%}%>
+    <form id="tab">
+      <div class="ultimo">
+        <div>
+          <% if (datosPisos.length > 0 || datosPuertas.length > 0) { %>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="text-align: left;">
+              <label for="">Subtotal:</label><br />
+              <label for="">Tacks:</label><br />
+              <label for="">Shipping:</label><br />
+              <label for="">Total:</label>
+            </div>
+            <div style="text-align: right;">
+              <% if (datosPisos.length > 0) { %>
+              <span><%= datosPisos[0].total_sum.toLocaleString('en', { style: 'currency', currency: 'USD' }); %></span><br />
+              <% } else if (datosPuertas.length > 0) { %>
+              <span><%= datosPuertas[0].total_sum.toLocaleString('en', { style: 'currency', currency: 'USD' }); %></span><br />
+              <% } %>
+              <span>0%</span><br />
+              <span id="flete"></span><br />
+              <% if (datosPisos.length > 0) { %>
+              <span><%= datosPisos[0].total_sum.toLocaleString('en', { style: 'currency', currency: 'USD' }); %></span><br />
+              <% } else if (datosPuertas.length > 0) { %>
+              <span><%= datosPuertas[0].total_sum.toLocaleString('en', { style: 'currency', currency: 'USD' }); %></span><br />
+              <% } %>
+            </div>
+          </div>
+          <% } %>
+        </div>        
+        <input
+          type="button"
+          class="btn btn-outline-warning mt-3 btn-lg fin"
+          value="Finish"
+          id="finishButton"
+        />
+      </div>
+    </form>
+  </body>
+  <script src="/javascript/pdfContent.js"></script>
+</html>

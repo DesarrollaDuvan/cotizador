@@ -1,0 +1,149 @@
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('fonts/Century/GOTHIC.TTF');
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 40px;
+  font-family: 'Century Gothic', sans-serif;
+}
+.linea {
+  background-color: #0000002c;
+  width: 100%;
+  height: 1px;
+}
+.puerta {
+  width: 250px;
+  height: auto;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 59.25%;
+  position: relative;
+  height: 0;
+}
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.encs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 8%;
+}
+
+.nav{
+  margin-right: 40px;
+}
+
+input {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 5px;
+}
+
+
+@media (max-width: 991.98px)  and (min-width: 400px){
+  .articulo a{
+    height: 100%;
+    margin-left: 50%;
+  }
+  h4{
+    margin-left: 55%;
+    width: 100%;
+    font-size: 18px;
+    color: rgb(107, 105, 105);
+    margin-bottom: 10px;
+  }
+  .col-6 {
+    margin: 10px;
+  }
+
+  .navbar-brand{
+    margin-left: 5%;
+  }
+}
+
+@media(max-width: 450px){
+  .articulo a{
+    height: 100%;
+    margin-left: 25%;
+  }
+  h4{
+    margin-left: 30%;
+    width: 150%;
+    font-size: 18px;
+    color: rgb(107, 105, 105);
+    margin-bottom: 10px;
+  }
+  .col-6 {
+    margin: 10px;
+  }
+
+  .navbar.mobile-center {
+    text-align: center;
+  }
+  
+  .navbar.mobile-center img {
+    display: block;
+    margin: auto;
+  }
+
+  .navbar {
+    text-align: center;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .linea {
+    display: none;
+  } 
+
+  .encs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .encs img {
+    margin-right: 20%;
+    max-width: 50%;
+    height: auto;
+  }
+  
+}

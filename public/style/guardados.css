@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+.titulo {
+  background-color: rgb(231, 231, 231);
+  text-align: center;
+  margin-top: -57px;
+  width: 95%;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.arr {
+  font-size: 30px;
+}
+.linea1 {
+  display: flex;
+  background-color: black;
+  width: 95%;
+  height: 1px;
+  margin-left: 20px;
+}
+.contador {
+  color: white;
+  background-color: black;
+  border-radius: 100%;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+}
+.borde {
+  margin-left: 10px;
+}
+.dividir {
+  background-color: black;
+  width: 1px;
+  height: 50px;
+  margin-right: 10px;
+}
+table {
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-spacing: 0px;
+  margin-bottom: 10px;
+  background: rgb(231, 231, 231);
+}
+th {
+  text-align: center;
+  padding-bottom: 10px;
+}
+td {
+  background: #fff;
+  color: #000;
+  height: 50px;
+  width: 40px;
+  padding: 15px;
+  border-bottom: 2px solid #e6e0e0;
+  text-align: center;
+}
+.tablessss {
+  list-style-type: none;
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+}
+.ultimo{
+  display: flex;
+  flex-direction: column;
+  max-width: 250px; /* ajustar el ancho máximo según tus necesidades */
+  margin-left: 70%;
+  margin-top: 3%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tot {
+  height: 1px;
+  width: 200px;
+  margin-left: 60%;
+  margin-top: 10px;
+  background-color: #000;
+  margin-bottom: 20px;
+}
+.puer {
+  margin-top: -6px;
+  height: 70px;
+  width: auto;
+}
+.informacion {
+  width: 50%;
+  height: 150px;
+  background-color: rgb(63, 63, 63);
+  text-align: center;
+  padding-top: 50px;
+  color: #fff;
+  margin-left: 20px;
+}
+.conpacto {
+  display: flex;
+}
+.dataTables_filter {
+  display: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.dataTables_info {
+  display: none;
+}
+table tr {
+  counter-increment: rowNumber;
+}
+table tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+.btn-eli {
+  display: flex;
+  justify-content: right;
+  margin-top: -80px;
+  margin-right: 20%;
+}
+.btn-del {
+  border: none;
+  background-color: white;
+  border-radius: 20px;
+  outline: none;
+}
+.btn-eli-pro {
+  border: none;
+  background-color: white;
+  border-radius: 20px;
+  outline: none;
+}
+.client{
+  margin-left: -20%;
+}
+h3{
+  text-align: center;
+}
+.img-del {
+  height: 20px;
+  width: 20px;
+}
+.atras {
+  display: flex;
+  justify-content: right;
+  text-decoration: none;
+  color: #000;
+  font-size: 22px;
+}
+.marc{
+  margin-top: -3px;
+  width: 65px;
+  height: auto;
+}
+.indice{
+  display: none;
+}
+@media (min-width: 2000px ) and (  max-width: 3000px) {
+  .ultimo {
+    margin-top: -7%;
+    margin-left: 85%;
+    display: block;
+    width: 15%;
+    text-align: left;
+    font-size: 15px;
+  }
+  .conpacto {
+    margin-top: 50px;
+    display: flex;
+  }
+}
+@media(max-width: 900px){
+  table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  thead {
+    display: none;
+  }
+  td, th {
+    text-align: left;
+    padding: 8px;
+  }
+  .ultimo {
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 50%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .ultimo {
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 50%;
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+  }
+  td, th {
+    font-size: 14px;
+  }
+}

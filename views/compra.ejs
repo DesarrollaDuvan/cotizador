@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/estilos.css" />
+    <link rel="stylesheet" href="/style/guardados.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <title>Compra</title>
+</head>
+
+<body>
+    <nav class="navbar">  
+        <img
+          src="/images/redes/acemarUS.png"
+          class="navbar-brand ms-5"
+          alt=""
+          width="auto"
+          height="70"
+        />
+        <ul class="nav justify-content-end me-5">
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="/account">Account</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-secondary"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Products
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/doors">Doors</a></li>
+              <li><a class="dropdown-item" href="/productos">Flooring</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary bg-light" href="/facturas">Invoice</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-secondary"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Price
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/priceDoor">Doors</a></li>
+              <li><a class="dropdown-item" href="/precios">Flooring</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="/inventario"
+              >Inventory</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="/"
+              ><i
+                class="fa-solid fa-arrow-right-from-bracket mt-3 ms-3 text-secondary fs-5"
+              ></i
+            ></a>
+          </li>
+        </ul>
+        <div class="mt-2 linea"></div>
+      </nav>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Image</th>
+          <th scope="col">Top Layer</th>
+          <th scope="col">Pallets</th>
+          <th scope="col">SQF per Pallet</th>
+          <th scope="col">Boxes per pallet</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% pisos.forEach(function(pisos){ %>
+        <tr  class="bg-white">
+          <td><%= pisos.producto%></td>
+          <td><img style="width: 60px;" src="/images/flooring/<%= pisos.imgpiso%> " alt=""></td>
+          <td><%= pisos.top_layer%></td>
+          <td><%= pisos.pallets%></td>
+          <td><%= pisos.sqf_per_pallet%></td>
+          <td><%= pisos.boxes_per_pallet%></td>
+          <td><%= pisos.unit_price%></td>
+          <td><%= pisos.total%></td>
+        </tr>
+      </tbody>
+      <% })%>
+      </tbody>
+    </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Image</th>
+          <th scope="col">Frame</th>
+          <th scope="col">Color</th>
+          <th scope="col">Height</th>
+          <th scope="col">width</th>
+          <th scope="col">Finish</th>
+          <th scope="col">Opening</th>
+          <th scope="col">Core</th>
+          <th scope="col">Thickness</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% puertas.forEach(function(puertas){ %>
+        <tr class="bg-white">
+          <td><%= puertas.producto%></td>
+          <td><img style="width: 60px;" src="/images/doors/<%= puertas.directorio%>/<%= puertas.imgpuerta%> " alt=""></td>
+          <td><%= puertas.frame%></td>
+          <td><%= puertas.color%></td>
+          <td><%= puertas.height%></td>
+          <td><%= puertas.width%></td>
+          <td><%= puertas.finish%></td>
+          <td><%= puertas.opening%></td>
+          <td><%= puertas.core%></td>
+          <td><%= puertas.thickness%></td>
+          <td><%= puertas.quantity%></td>
+          <td><%= puertas.unit_price%></td>
+          <td><%= puertas.total%></td>
+        </tr>
+      </tbody>
+      <% })%>
+      </tbody>
+    </table>
+    <div class="ultimo mt-auto mt-5" style="display: flex; justify-content: space-between; text-align: left; padding: 10px;">
+      <div>
+        <label for="">Subtotal:</label><br />
+        <label for="">Tacks:</label><br />
+        <label for="">Shipping:</label><br />
+        <label for="">Total:</label>
+      </div>
+      <div style="text-align: right; margin-top: -120px;">
+        <span><%= productos[0].subtotal %></span><br />
+        <span><%= productos[0].impuesto %></span><br />
+        <span><%= productos[0].envio %></span><br />
+        <span><%= productos[0].factura_total %></span><br />
+      </div>
+    </div>
+    <footer class="text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="border bg-light container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0 text-center">
+                    <div class="text-center">
+                        <div class="row">
+                            <h5 class="mt-5"><em>Sites of interest</em></h5>
+                            <a href="https://athomefloors.biz/"
+                                class="text-decoration-none text-dark mt-1"><em>Colortile</em></a>
+                            <a href="https://www.acemar.co/"
+                                class="text-decoration-none text-dark mt-1 "><em>Acemar</em></a>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <!--Icono de Facebook-->
+                        <a class="btn text-white btn-floating m-1" style="background-color: #000000;"
+                            href="https://www.facebook.com/people/Acemar-Wood/100076103297662/" role="button"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <!--Icono de Twitter-->
+                        <a class="btn text-white btn-floating m-1" style="background-color: #000000;"
+                            href="https://twitter.com/Acemar1958" role="button"><i class="fab fa-twitter"></i></a>
+                        <!--Icono de Instagram-->
+                        <a class="btn text-white btn-floating m-1" style="background-color: #000000;"
+                            href="https://www.instagram.com/acemarwood/?utm_medium=copy_link" role="button"><i
+                                class="fab fa-instagram"></i></a>
+                        <!--Icono de Linkendin-->
+                        <a class="btn text-white btn-floating m-1" style="background-color: #000000;"
+                            href="https://www.linkedin.com/in/triplex-acemar-sas-06323556" role="button"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <!--Icono de YouTube-->
+                        <a class="btn text-white btn-floating m-1" style="background-color: #000000;"
+                            href="https://www.youtube.com/channel/UCbMSDNFB8H_g1aHDDE-jcnA?view_as=subscriber"
+                            role="button"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0 col-sm-1 col-xs-2">
+                    <div class="map-responsive">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3526.17503655854!2d-82.76075328552254!3d27.896601423757517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2faeae4eaaaab%3A0xffbbd9ca69894ee9!2s2310%20Tall%20Pines%20Dr%20Suite%20230%2C%20Largo%2C%20FL%2033771%2C%20EE.%20UU.!5e0!3m2!1ses!2sco!4v1663612375888!5m2!1ses!2sco"
+                            width="675" height="300px" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+    </footer>
+</body>
+
+</html>

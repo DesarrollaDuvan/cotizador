@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acemar</title>
+    <script src="javascript/jquery-3.6.1.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="style/login.css" />
+  </head>
+
+  <body>
+    <div class="contenido">
+      <div class="bienvenida bg-black">
+        <h2 class="text-center">Welcome</h2>
+        <div class="linea-welcome"></div>
+        <h3>Get a quick and easy quote</h3 >
+        <br>
+        <br>
+        <h3>Select the product you wish to quote</h3 >
+        <br>
+        <br>
+        <h3>Get the PDF of the quote by email</h3>
+        <img src="/images/redes/SKINET-CIRCULO.png" class="logo">
+      </div>
+      <div class="animate__animated animate__bounce animate__backInUp">
+        <form action="/validarlogin" method="post" id="login" class="login">
+          <h1>Login</h1>
+          <div class="lin-login"></div>
+          <h4>E-mail</h4>
+          <div class="input-group ">
+            <input type="text" name="user" class="form-control" />
+          </div>
+          <h4>Password</h4>
+          <div class="input-group mt-2">
+            <input type="password" name="pass" class="form-control" />
+          </div>
+
+          <input
+            type="submit"
+            class="btn btn-warning mt-3 w-50 aling-item-center"
+            value="Enter"
+          />
+          <div class="text-center">
+            <em
+              ><a
+                class="text-decoration-none text-black"
+                href="http://acemardistributors.com:5005"
+                >Forgot your password</a
+              ></em
+            >
+          </div>
+          <!-- <button type="button" class="btn btn-warning mt-3 w-100">Enter</button> -->
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
